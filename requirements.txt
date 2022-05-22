@@ -1,4 +1,4 @@
 Flask
-pickle==4.0
+pickle-mixin
 pandas
 gunicorn
