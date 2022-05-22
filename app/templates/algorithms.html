@@ -1,227 +1,272 @@
 {% extends "layout.html" %}
 {% block body %}
-<div class="jumbotron text-center">
-        <h3>Algorithms And Experimental Results</h3>
-            <br>
+<div class="jumbotron text-justify">
+        <center>
+                <h3>Algorithms And Experimental Results</h3>
+        </center>
+        <br>
         <h5>Algorithms</h5>
-        <h7>KNN</h7>
+        <h6>K Nearest Neighbour</h6>
         <br>
-        <p>In the K-Nearest Neighbor algorithm, predictions are made based on the similarity of the observations.
-Estimates the target column based on the distances of
-the points from each other. The target column of the
-point to be estimated according to the K nearest
-neighbors of a point gives its class if it is a
-classification problem, and its mean value if it is a
-regression problem. While calculating, distances such
-as Euclidean distance, Manhattan distance or
-Minkowski distance can be used for continuous
-variables. The most commonly used is the Euclidean
-distance. Hamming distance is used for categorical
-variables.</p>
+        <p>The data set obtained after the preprocessing operations were saved in a csv file. Then, the K Nearest
+                Neighbor algorithm was applied on this file.
+        </p>
+        <p>
+                For the K Nearest Neigbour algorithm, KNeighborsClassifier from sklearn.neighbors library and
+                train_test_split from sklearn.model_selection library are imported. After these processes, the target
+                attribute (Class) that the algorithm will focus on is determined. Then, feature and target arrays were
+                created for the data set. Here, the target attribute is removed from the feature array. In the target
+                array, there is only the target attribute.
+        </p>
+        <p>
+                After the feature and target arrays are created, the data set is divided into test and train sets, 20
+                percent of which is the test set. The ratios of test and train sets can be changed for different
+                optimizations of the algorithm.
+        </p>
+        <p>
+                After the test and train sets were separated, the KNN algorithm was run with k as 3. Then the result of
+                the KNN algorithm and the results of the test set were compared with the fit function. The algorithm can
+                be optimized by giving k different values. For this, the KNN algorithm was run by determining the number
+                of k as 3, 5 and 7 and the results were compared.
+        </p>
+        <p>
+                In the last step, the accuracy value of the KNN algorithm was calculated.
+                After running the KNN algorithm, it was tested using Cross Validation. For this, cross_val_score is
+                imported from the sklearn.model_selection library. Cross Validation values were calculated by entering
+                cv value as 10 and k value as 5. The accuracy values produced for the entered cv and k values and the
+                average of these accuracy values are shown in Figure 3.2.1.
+        </p>
+        <p>
+                <center>
+                        <img src="/static/img/figure-3-2-1.jpeg" /><br>
+                        Figure 3.2.1 KNN Cross Validation Scores
+                </center>
+        </p>
+        <p>
+                Finally, for the optimization of the k values, the accuracy values of the algorithm were measured at k
+                values between 1 and 41. The result of these measurements is shown in Figure 3.2.2.
+        </p>
+        <p>
+                <center>
+                        <img src="/static/img/figure-3-2-2.jpeg" /><br>
+                        Figure 3.2.2 Comparison of different k values
+                </center>
+        </p>
         <br>
-        <h7>SVM</h7>
+        <h6>Naive Bayes</h6>
         <br>
-        <p>The purpose of the support vector machine is to
-create a margin gap with the smallest error.
-is to determine the line or curve that includes the
-maximum point. It is an algorithm that gives high
-success values in classification problems. Moreover,
-since there are many types, many models can be
-created.</p>
+        <p>The data set obtained after the preprocessing operations were saved in a csv file. Then, the Naive Bayes
+                algorithm was applied on this file.
+        </p>
+        <p>
+                For the Naive Bayes algorithm, GaussianNB from sklearn.naive_bayes library and train_test_split from
+                sklearn.model_selection library are imported. After these processes, the target attribute (Class) that
+                the algorithm will focus on is determined. Then, feature and target arrays were created for the data
+                set. Here, the target attribute is removed from the feature array. In the target array, there is only
+                the target attribute.
+        </p>
+        <p>
+                After the feature and target arrays are created, the data set is divided into test and train sets, 30
+                percent of which is the test set. The ratios of test and train sets can be changed for different
+                optimizations of the algorithm.
+        </p>
+        <p>
+                After the test and train sets were separated, the Naive Bayes algorithm was run. Then the result of the
+                Naive Bayes algorithm and the results of the test set were compared with the fit function.
+        </p>
+        <p>
+                In the last step, the accuracy value of the Bayes algorithm was calculated and the confusion matrix was
+                created. Figure 3.2.3 shows the confusion matrix obtained from the Naive Bayes algorithm.
+        </p>
+        <p>
+                <center>
+                        <img src="/static/img/figure-3-2-3.jpeg" /><br>
+                        Figure 3.2.3 Confusion Matrix of Naive Bayes
+                </center>
+
+        </p>
         <br>
-        <h7>ANN</h7>
+        <h6> Decision Tree </h6>
         <br>
-        <p>Artificial neural networks are an algorithm
-produced by taking the human brain as a reference.
-Since the data are collected by multiplying with certain
-weights, their effects on the model are checked.
-Finding the values of the weights is of great
-importance. Back propagation algorithms are used and
-it is an algorithm with a high probability of overlearning. Before creating a model, normalization and
-transformation must be done. It is a very timeconsuming algorithm.</p>
+        <p>In order for the Decision Tree results to give the best accuracy values, a method called gird search should
+                be used to find the optimum value among its parameters. Decision Tree has quite different parameters in
+                itself. The parameters used to optimize the decision tree in this project are:
+                -Criterion: Measure the quality of a split. In this project given ‘gini’ or ‘entropy’.
+                -max_depth: the maximum depth of a tree. In this project, None,50,100,150 and 200 are given.
+                -Max_features:The number of features to consider when looking for the best split.In this project,
+                None,’auto’,’sqrt’ and ‘log2’ are given.
+                -Min_samples_split:The minimum number of samples required to split an internal node.In this project,
+                2,10,50,100,150 and 200 are given.
+                -splitter:The strategy used to choose the split at each node. In this project, best and random are
+                given.
+                When we run it to find the best of these parameters in the Decision tree, a method called N-fold
+                cross-validation is applied. In this method, N=5 was run. Some accuracy values ​​obtained when grid
+                search is run are shared below.
+        </p>
+        <p>
+                <center>
+                        <img src="/static/img/table-3-2-1.jpeg" /><br>
+                        Table 3.2.1 Grid Search Result of Decision Tree
+                </center>
+
+        </p>
+        <p>
+                At this point, we see that we get the best results without giving max_Depth and max_features. So we can
+                plot the min_samples split and check if the value we actually get is the best. This graphic is shared in
+                Figure 3.2.4.
+        </p>
+        <p>
+                <center>
+                        <img src="/static/img/figure-3-2-4.jpeg" /><br>
+                        Figure 3.2.4 Min_samples_Split parameter Accuracy Result
+                </center>
+
+        </p>
+        <p>
+                According to this graph, we see that the entropy value gives better results than gini. Although a high
+                value was found between 120 and 140 values, it continued with the same value for a certain time after
+                140 and then suddenly decreased. Since this point is the elbow curve, 150 was chosen as the best result.
+        </p>
+        <p>
+                As can be seen, the most optimal parameters were found. The result in our set with these parameters is
+                given Figure 3.2.5:
+        </p>
+        <p>
+                <center>
+                        <img src="/static/img/figure-3-2-5.jpeg" /><br>
+                        Figure 3.2.5 Confusion Matrix and Result of Decision Tree
+                </center>
+        </p>
+        <p>
+                <center>
+                        <img src="/static/img/figure-3-2-6.jpeg" /><br>
+                        Figure 3.2.6 Confusion Matrix as a Heatmap of Decision Tree
+                </center>
+        </p>
+        <p>
+                When this confusion matrix is ​​examined in figure 3.2.6, we see that the classes Acoustic(0) and
+                7(Instrumental) are very similar to each other, and it is difficult to distinguish them from each other.
+                However, it has been observed that the distinctions between other classes can be easily made.
+        </p>
+        <p>
+                Finally, he drew a learning curve for the decision tree. Figure 3.2.7
+        </p>
+        <p>
+                <center>
+                        <img src="/static/img/figure-3-2-7.jpeg" /><br>
+                        Figure 3.2.7 Learning Curve of Decision Tree
+                </center>
+        </p>
+        <p>
+                In Figure 3.2.7,it is clearly seen that the model continued stably after 4000 sample size. Before that,
+                the education process continued.
+        </p>
         <br>
-        <h7>RF</h7>
+        <h6>Random Forest</h6>
         <br>
-        <p>The Random Forest algorithm also evaluates the
-predictions produced by many decision trees by
-bringing them together. Randomness is preserved in
-the variables in the observations. Observations are
-selected by bootstrap random sample selection method
-and variables are selected by random subspace method.
-Random variable selection is made for each node
-selection. Trees are given weight according to their
-success. This algorithm is a highly preferred successful
-algorithm.
-</p>
+        <p>Random Forest works with different decision trees. For this reason, grid search should be applied. The
+                parameters used in the random forest model to find the optimum results in this project are:
+                -max_depth: The maximum depth of the tree. None tested as 10,50,100,150,200.
+                -criterion: The function to measure the quality of a split. Two different values ​​were tried as Gini
+                and Entropy.
+                -n_estimators: The number of trees in the forest. 10, 50, 100, 150 and 200 values ​​were tried.
+                -min_samples_split: The minimum number of samples required to split an internal node.2,10,50,100,150 and
+                200 were tried.
+        </p>
+        <p>
+                To find the optimum of these parameters, grid search was used again and optimum values ​​were searched
+                with 5-fold cross validation. Some results are given in Table 3.2.2.
+        </p>
+        <p>
+                <center>
+                        <img src="/static/img/table-3-2-2.jpeg" /><br>
+                        Table 3.2.2 Result of Random Forest
+                </center>
+        </p>
+        <p>
+                The optimum value was chosen as gini,50,150,50, respectively. The main reason for this is that we can
+                find the same accuracy value by applying less operations. The accuracy and confusion matrix of these
+                results is given in Figure 3.2.8.
+        </p>
+        <p>
+                <center>
+                        <img src="/static/img/figure-3-2-8.jpeg" /><br>
+                        Figure 3.2.8 Accuracy of Random Forest
+                </center>
+        </p>
+        <p>
+                <center>
+                        <img src="/static/img/figure-3-2-9.jpeg" /><br>
+                        Figure 3.2.9 Confusion matrix Heatmap of Random Forest
+                </center>
+
+        </p>
+        <p>
+                When this confusion matrix is ​​examined in figure 3.2.9 , we see that the classes Acoustic(0) and
+                7(Instrumental) are very similar to each other, and it is difficult to distinguish them from each other.
+                alternative music and instrumental were difficult to separate in the Decision Tree model. Random Forest
+                did this better than Decision Tree.
+        </p>
         <br>
-        <h7> Gaussian Naive Bayes </h7>
+        <h6>CatBoost</h6>
         <br>
-        <p>This algorithm is a probability-based algorithm. It is
-used in classification problems. Calculates the
-probability that a particular sample belongs to each
-class. It is a successful algorithm in datasets containing
-multi-category class structure.</p>
+        <p>Parameters to be tested in Catboost:
+                -depth:Depth of a tree. The numbers between 4 and 10 are given as ranges.
+                -learning_rate:Step size shrinkage used in update to prevents overfitting. The range is between 0.01 and
+                0.04.
+                -iterations:Max count of trees.100,500,1000,1200 and 1500 are given.
+                Catboost ran longer than Random Forest and Decision Tree. For this reason, the optimum result appears in
+                figure 3.2.10.
+        </p>
+        <p>
+                <center>
+                        <img src="/static/img/figure-3-2-10.jpeg" /><br>
+                        Figure 3.2.10 Best Parameter for CatBoost
+                </center>
+        </p>
+        <p>
+                However, it was seen that 0.86 accuracy value, which is a higher result than the other two tree
+                algorithms, was obtained.
+        </p>
+        <p>
+                <center>
+                        <img src="/static/img/figure-3-2-11.jpeg" /><br>
+                        Figure 3.2.11 Confusion matrix Heatmap of CatBoost
+                </center>
+        </p>
+        <p>
+                In Figure 3.2.11, it is seen that it is better in separating Acoustic(0) and 7(Instrumental) compared to
+                the other two tree algorithms.
+
+        </p>
         <br>
-    <hr>
-        <h5>Optimization of the Model</h5>
+        <h6>AdaBoost</h6>
         <br>
-        <p>In classification analysis, accuracy is a metric that
-gives correctness. If this value is high, it shows how well
-the model can make predictions. As a result of the
-researches, it has been noticed that the Precision and
-Recall values are also important. Precision value deals
-with truly correct values and incorrectly correct values
-and determines how many are actually correct. Recall, on
-the other hand, determines how much of the operations
-that should actually be correct are correct. In addition, the
-F1 score value is the harmonic mean of the Precision and
-Recall values and generally used for comparing models.
-In addition to the Accuracy value, it is important for the
-model that these three values are high.
- An increase in the performance of the model is
-detected by changing the values of the hyperparameters
-given while creating the model. For this reason, support
-was taken from the grid search algorithm to find the
-optimal parameters. For the grid search algorithm, first of
-all, the parameters affecting the model are determined and
-all values are given a range for their values. Then the
-algorithm tries all possible combinations and returns the
-best parameter values by using cross validation.
- Grid search technique was applied on the validation
-set, the model was trained on the train set, and the success
-of the model was measured with the test set.</p>
-       <br>
-    <hr>
-       <h5>Results</h5>
-       <br>
-        <p>After the data set was finalized, it was divided into 3 parts
-as train, test and validation set. Train set was used for model,
-test set was used for prediction and validation set was used
-for grid search.
- In the study, model creation, estimation, model tuning
-and cross validation processes were performed for 5 different
-algorithms, respectively. The k value for the cross validation
-was set as 10 and was used in that way in all algorithms. In
-the model tunning process, suitable parameters for grid
-search were searched. In the selection of these parameters,
-great care was taken to include the most frequently used
-parameters with a high success rate.</p>
+        <p>Several different models were created in Adaboost and various accuracies were calculated for these models.
+                The list of models created is shown in Figure 3.2.12. The result created accordingly is seen in Figure
+                3.2.13.
+        </p>
+        <p>
+                <center>
+                        <img src="/static/img/figure-3-2-12.jpeg" /><br>
+                        Figure 3.2.12 Different models for AdaBoost
+                </center>
+        </p>
+        <p>
+                Some parameters in adaboost are: n_estimators and learning rate. n_estimators decide the number of
+                trees. In this project only 50,60 and 70. learning rate is given 0.1 and 2.0. It changes how fast
+                algorithms learn.
+        </p>
+        <p>
+                <center>
+                        <img src="/static/img/figure-3-2-13.jpeg" /><br>
+                        Figure 3.2.13 AdaBoost Result
+                </center>
+        </p>
+        <p>
+                The best result of the Adaboost parameter was 0.84.
+        </p>
         <br>
-        <h7>KNN</h7>
-        <br>
-        <p>First, the model creation process started with the kNearest Neighbor algorithm. The KNN algorithm has a single
-parameter called n_neighbors. The best n_neighbors value
-was determined as 1, thanks to the model inserted into the
-grid search with a range of 1 to 50. With this parameter, the
-model was rebuilt and 81.7% accuracy value was obtained.
-With the Classification report, precision, recall, F1 values
-were reached. Then, the accuracy reliability was tested with
-the cross-validation method. With the cross-validation result
-of 82.9% accuracy, the modeling process was completed.
-KNN is one of the algorithms with the highest result.
-</p>
-        <br>
-        <h7>Naive Bayes</h7>
-        <br>
-        <p>Bayesian algorithm has a single parameter called
-var_smoothing. Grid search was run by determining the range. As a result, after obtaining 57% accuracy value, it reached
-56.5% with cross validation process, and the reliability of the
-result was observed.
- Naive Bayes algorithm is the algorithm with the lowest
-accuracy value.
-</p>
-        <br>
-        <h7>ANN</h7>
-        <br>
-        <p>Artificial Neural Networks algorithm has too many
-parameters. In the project, some of these parameters are used
-for grid search.</p>
-        <p>The solver parameter is used for weight optimization.
-The alpha value is the parameter of the L2 penalty.
-The hidden_layer_size parameter determines the
-number of neurons in the hidden layers.
-The activation parameter is the activation function for
-hidden layers.
- The best values of these parameters used were
-obtained as a result of grid search. While 76.3% accuracy
-value was obtained, this value was supported by 71%
-cross validation</p>
-       <br>
-        <h7>SVM</h7>
-        <br>
-        <p>There are 5 different kernel parameter values in the SVC
-algorithm. Two of them were taken in the project and separate
-models were created as they would work faster.
-</p>
-        <p>1) kernel =”rbf”
-C and gamma parameters were used in the SVCRBF model. The C parameter is the regularization
-parameter and must be a strictly positive value. gamma is
-the kernel coefficient. It is not used for every kernel. It
-has been added because it is convenient to use for RBF.</p>
-        <p>With the parameters selected in grid search, an
-accuracy value of 77.8% was obtained.</p>
-        <p>2) kernel = “linear”
-Only parameter C is used in this model. 65.4%
-accuracy value was obtained.
-</p>
-        <br>
-        <h7>RF</h7>
-        <br>
-        <p>The RF algorithm, which gave 80% accuracy in the first
-model, gave a lower accuracy (66%) after choosing the best
-parameters.
-That's why feature importance is done. This process
-determines the most important features and creates a model
-again with the parameters selected in grid search.</p>
-        <p>Feature importance clearly shows that categorical
-variables are unimportant in this operation.
- With the repeated model creation process, 82.9%
-accuracy was achieved. Looking at the result, the RF model
-is the most successful one.</p>
-        <br>
-        <br>
-    <hr>
-        <p>As a result, to list the success of the models created, the
-3 most successful algorithms are: Random Forest, KNN,
-SVC-Rbf. The most unsuccessful algorithm that was decided
-not to be used in this study is Naive Bayes.</p>
-        <br>
-    <hr>
-       <h5>Conclusion</h5>
-        <br>
-        <p>As a result, an idea about the characteristics of the data
-was obtained with exploratory data analysis, statistical
-approaches and data visualization techniques on the dataset.
-Thus, a more realistic approach was made by recognizing the
-data in the data preprocessing steps. Preprocessing consisted
-of missing data analysis and filling in this data, outlier
-analysis and deletion of these values, searching and
-correcting false values, and deleting non-generalizable
-columns. The data distribution of the target column was
-examined and oversampling was performed with the SMOTE
-technique. KNN, Gaussian Naive Bayes, Support Vector
-Machines, Artificial Neural Networks, Random Forest
-models were created with the train set. And optimization was
-done on the validation set with grid search technique. While
-measuring the success of the model, accuracy, precision,
-recall, f1 score values were checked using the test set, and the
-most successful model, Random Forest model, was selected
-by evaluating the accuracy value. Thus, using this model,
-when a new music data comes in, its genre is determined.</p>
-       <br>
-        <br>
-    <hr>
-       <h5>References</h5>
-        <br>
-        <p>[1] https://en.wikipedia.org/wiki/Python_(programming_la
-nguage)</p>
-<p>[2] https://en.wikipedia.org/wiki/Anaconda_(Python_distri
-bution)</p>
-<p>[3] https://en.wikipedia.org/wiki/Spyder_(software</p>
-<p>[4] https://en.wikipedia.org/wiki/Pandas_(software)</p>
-<p>[5] https://en.wikipedia.org/wiki/NumPy</p>
-<p>[6] https://en.wikipedia.org/wiki/Matplotlib</p>
-<p>[7] https://analyticsindiamag.com/tutorial-on-missingnopython-tool-to-visualize-missing-values/</p>
-<p>[8] https://en.wikipedia.org/wiki/Scikit-learn</p>
+        <hr>
 </div>
 {% endblock %}

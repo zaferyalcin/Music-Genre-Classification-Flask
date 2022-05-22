@@ -1,90 +1,135 @@
 {% extends "layout.html" %}
 {% block body %}
-<div class="jumbotron text-center">
+<div class="jumbotron text-justify">
+    <center>
         <h3>Literature Review</h3>
-            <br>
-            <h5>A. Music Genre Classification using Machine Learning Techniques Hareesh Bahuleyan</h5>
-            <p>The project’s aim is which has been mentioned in this
-article, about categorizing music files according to their
-genre. Two significant approaches have been tested and
-compared in this study. First one is deep learning approach
-and the second approach is traditional machine learning
-algorithms. The first model has been created with
-Convolutional Neural Networks (CNN) and the model has
-been trained end to end on the spectrogram of the audio
-signal. In the second part, features and the time domain has
-been extracted. Then, these features fed to CNN which are
-Logistic Regression, Random Forest, Gradient Boosting and
-Support Vector Machine. In this study, Audio Set which is a
-large-scale human annotated database of sounds has been
-used. This dataset has been created vy extracting 10-second
-sound clips from a total of 2.1 million YouTube videos. At
-the preprocessing step, signal-to-noise ratio (SNR) of the
-signal has been improved by pre-emphasis filter. Then deep
-learning has been used, in according to this genre
-classification can be done with no need of hand-created
-features. CNN has been widely used in the field of image
-classification. At this point, wave can be represented as a
-spectrogram which can be considered as an image. So, the
-spectrograms have been generated. Spectrograms have some
-characteristic patterns by examining the spectrograms.
-Convolution, pooling and non-linear activation operations
-has been applied. To prevent overfitting L-2 Regularization
-and Dropout strategies has been adopted. At the second part,
-Time domain features are central moments which are mean,
-standard deviation, skewness and kurtosis of the amplitude of
-the signal, zero crossing rate, Root mean square energy,
-tempo. Frequency domain features are Mel-Frequency
-cepstral coefficients, Chroma features, Spectral centroid,
-Spectral band-width, Spectral Contrast, Spectral Roll-off.
-Logistic regression classifier implemented as one-vs-rest
-method. As a result of the class which has the highest
-probability chosen as predicted class. Random forest
-classifier is an ensemble learner and uses bootstrap
-aggregation and random subset of features. As a result of
-predicted class has the majority vote from the individual
-classifiers. Gradient Boosting Classifier is also an ensemble
-learning algorithm which uses weak learners and
-interestingly, classifier becomes really powerful. Support
-Vector Machines classifier transforms the original input data
-into high dimensional space y using kernel trick. In this study
-radial basis function has been used. Accuracy, F-score and
-AUC metrics used to evaluate the performance of the models.
-The best performance in terms of all metrics is belong to the
-CNN model which based on VCG-16 which used only the
-spectrograms. And xtreme gradient boosting has really great
-scores at feature engineering-based models. Then most
-important features have been extracted from XGBoost model.</p>
-            <h5>B. IRJET- Music Genre Classification using Machine Learning Algorithms: A comparison</h5>
-            <p>The model which is in the study aims to categorize the
-music in terms of their genre. Free music archive dataset has
-been used. Multiple classification model has been applied and
-compared in according to their accuracy scores. Melspectrograms and spectrograms has been used. Companies
-use music classification for better recommendation to their
-customers. The dataset contains danceability, tempo, energy,
-etc. columns. Balanced dataset has been used. Deep Neural
-Networks provides the great results without using handcrafted features. CNN algorithm is a great choice for images
-and the sound wave can be represented as a spectrogram
-which can be considered as an image. Spectrograms has been
-generated with the signals. Convolutional Neural Networks
-and Convolutional Recurrent Neural Networks has been
-used. And the parallel model which uses both of the
-algorithms has been applied. To prevent overfitting Dropout
-strategy has been adopted. This strategy sets some neurons
-weight to zero randomly during training. So, every iteration
-is different than the other. The dataset has been randomly
-splitted into training set (80%), validation set (10%) and the
-test set (%10). Time domain features and frequency domain
-features has been extracted. Logistic Regression Classifier
-implemented as a one-vs-rest method. The class with highest
-probability is chosen as predicted class. Simple Artificial
-Neural Networks is a computational model-based approach.
-And also, it was appropriate for the complex nature of the
-dataset. Accuracy metric has been used for the evaluation of
-the model’s performance. CNN model has the best accuracy
-in the spectrogram-based models. And Simple Artificial
-Neural Network has the best accuracy in the feature-based
-models. As a result, increasing the training dataset might
-create the differences.</p>
-    </div>
+    </center>
+    <p>Within the scope of this project, common machine learning algorithms were used. These algorithms are K Nearest
+        Neighbor, Naive Bayes, Decision Trees, Random Forest, ADABOOST and CATBOOST. These algorithms were run in the
+        background of the website and the algorithm that gave the best results was selected according to the parameters
+        entered by the user. The result of this algorithm is shown to the user.
+    </p>
+    <p>
+        The algorithms used in this project are widely used in the literature. These algorithms are used in many
+        different
+        fields beyond the scope of this project. In this section, information is given about the places of algorithms
+        used
+        in this project in the literature.
+    </p>
+    <p>
+        The first of the algorithms used in this project is the K Nearest Neighborhood (KNN) algorithm. KNN is a
+        classification algorithm. The KNN algorithm is a simple and effective algorithm. For this reason, it is used in
+        many
+        data mining applications. The basis of the KNN algorithm is to predict the label of the test data based on the
+        distance between the data. Each data has a label according to the label of its k nearest neighbors. There are
+        two
+        important points here. The first of these points is the method of measuring the distance between the data. The
+        smaller the distance between the data, the more similar the data to each other, and the algorithm gives a result
+        according to this similarity. Therefore, it is necessary to measure the similarity between the data accurately.
+        In
+        the KNN algorithm, the distance between the data is measured by calculation methods such as Euclidean distance,
+        Mahalanobis distance, and Minkowsky distance. Another important point in the KNN algorithm is the determination
+        of
+        the k value. The k value can be determined as a fixed value or by using methods such as Cross Validation [2],
+        [3].
+    </p>
+    <p>
+        Another algorithm used in this project is the Naive Bayes algorithm. Naive Bayes is a simple learning algorithm
+        that
+        utilizes Bayes’ Rule together with a strong assumption that the attributes are conditionally independent given
+        the
+        class. While this independence assumption is often violated in practice, Naive Bayes nonetheless often delivers
+        competitive classification accuracy. Coupled with its computational efficiency and many other desirable
+        features,
+        this leads to Naive Bayes being widely applied in practice. Naive Bayes provides a mechanism for using the
+        information in sample data to estimate the posterior probability P(y | x) of each class y given an object x.
+        Once
+        such predictions are available, they can be used for classification or other decision support applications [4],
+        [5],
+        [6].
+    </p>
+    <p>
+        Decision Tree is one of the oldest machine learning methods. This method has formed the basis of many studies.
+        This
+        method aims to find which class an object belongs to using descriptive features. For this reason, it emerges as
+        an
+        important model in decision-making. Decision tree creates groups within itself and tries to predict the most
+        homogeneous state of these groups. Structurally, it consists of root and leaf structures. Each internal node
+        represents a test [7]. There are also different versions in the Decision Tree. Among these versions, the most
+        used
+        ones can be said as ID3, C4.5 and ASSISTANT [8]. In this project, the most basic version, ID3 was used.
+        According to
+        this version, top-down is applied and Greedy search is used. While creating each node, the descriptive
+        metric,information gain, is calculated. In order to ensure that this algorithm can give the best possible
+        result, it
+        should be ensured that the best parameter is found by using grid search in this algorithm, as in many
+        algorithms.
+    </p>
+    <p>
+        Random forest is developed using tree algorithms. However, it is one of the most successful algorithms. Random
+        forest appears as an ensemble classifier. However, it is used as an advanced version of the bagging algorithm.
+        Randomly creates new training sets when creating random forest nodes. These random selections can also be the
+        defining featıre or the size of the algorithm to be selected. In addition to all the decision tree features, we
+        can
+        create the best version of the algorithm by choosing the number of trees to be created in it. In addition to all
+        these this algorithm is very fast and very strong against the overfitting problem [9].
+    </p>
+    <p>
+        Adaboost and CatBoost algorithms aim to find the best result using different training weaknesses. These
+        algorithms
+        include multiple training sets as inputs. According to this algorithm, these training sets are multiplied by
+        certain
+        weights at each stage, and the weights of these algorithms are decided by looking at their success rate.
+        Boosting
+        models is a sequential build process based on minimizing errors from previous models while enhancing the impact
+        of
+        high-performance models [10]. It is a batch technique in which previous model errors are resolved in new models.
+        These algorithms also use a decision tree within themselves. Another important information is that the CatBoost
+        algorithm was developed by Yandex in 2018. In fact, these algorithms are considered as new algorithms.
+    </p>
+</div>
+
+<div class="jumbotron text-left">
+    <center>
+        <h3>References</h3>
+    </center>
+    <p>
+        [1] Musical Works Dataset: Music Genre Classification, Kaggle, August 2021. [Online]. Available:
+        https://www.kaggle.com/datasets/purumalgi/music-genre-classification?select=train.csv
+    </p>
+    <p>
+        [2] Shichao Zhang, Xuelong Li, Ming Zong, Xiaofeng Zhu, and Debo Cheng. 2017. Learning k for kNN classification.
+        ACM Trans. Intell. Syst. Technol. 8, 3, Article 43 (January 2017), 19 pages.
+    </p>
+    <p>
+        [3] S. Zhang, X. Li, M. Zong, X. Zhu and R. Wang, "Efficient kNN Classification With Different Numbers of
+        Nearest Neighbors", in IEEE Transactions on Neural Networks and Learning Systems, vol. 29, no. 5, pp. 1774-1785,
+        May 2018, doi: 10.1109/TNNLS.2017.2673241.
+    </p>
+    <p>
+        [4] I. Rish, “An empirical study of the naive Bayes classifier”.
+    </p>
+    <p>
+        [5] G. I. Webb, "Naïve Bayes", 2017.
+    </p>
+    <p>
+        [6] K. P. Murphy, "Naive Bayes classifiers", 2006.
+    </p>
+    <p>
+        [7] Hssina, B., Merbouha, A., Ezzikouri, H., & Erritali, M. (2014). A comparative study of decision tree ID3 and
+        C4. 5. International Journal of Advanced Computer Science and Applications, 4(2), 13-19.
+    </p>
+    <p>
+        [8] Peng, W., Chen, J., & Zhou, H. (2009). An implementation of ID3-decision tree learning algorithm. From web.
+        arch. usyd. edu. au/wpeng/DecisionTree2. pdf Retrieved date: May, 13.
+    </p>
+    <p>
+        [9] Akar, Ö., & Güngör, O. (2012). Classification of multispectral images using Random Forest algorithm. Journal
+        of Geodesy and Geoinformation, 1(2), 105-112.
+    </p>
+    <p>
+        [10] Ibrahim, A. A., Ridwan, R. L., & Muhamme, M. M. (2020). Comparison of the CatBoost classifier with other
+        machine learning methods. International Journal of Advanced Computer Science and Applications, 11(11), 738-748.
+    </p>
+</div>
 {% endblock %}

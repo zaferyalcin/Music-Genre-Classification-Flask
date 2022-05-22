@@ -1,90 +1,79 @@
 {% extends "layout.html" %}
 {% block body %}
 
-    <div class="jumbotron text-center">
-        <h3>Song's Genre Prediction using Machine Learning Algorithms</h3>
-        <br>
-        <p>With the developing technology, a transition to the digital
-world is observed in many sectors. The music industry is one
-of them. Spotify is one of the leading names in the digital
-music markets. Established in 2006, Spotify has been one of
-the most used music applications of recent times. This
-platform, which contains thousands of songs and playlists
-suitable for every style, every fashion, every moment, allows
-users to easily access the music they want with personalized
-recommendations.
- This project aims to predict the type of songs in Spotify
-by their characteristics. The purpose of this is to increase the
-speed of reaching the right audience by predicting the genre
-of a new music.
- For these purposes, the data set used in the project was
-examined in detail. By applying data preprocessing steps, the
-data has been brought into a usable form in machine learning
-algorithms. Then, accuracy calculations were made by
-choosing the most suitable algorithms for the content of the
-data. The algorithm model that gave the most reliable result
-was selected.
-</p>
-        <hr>
-    <h5> Dataset Information </h5>
-    <p>In the study, a data set containing the features of the songs
-in Spotify was used. In the data set, which contains 42305
-rows and 22 different variables, 11 of them are float64, 3 of
-them are int64 and 8 of them are object. This data set contains
-1 categorical type target column. The target column contains
-the genre of songs.</p>
-   <p>The aim of the study is to create a model that predicts the
-type of song according to the characteristics of the songs with
-machine learning algorithms. Before the model was created,
-a preliminary study was carried out on the data set containing
-categorically and numerically different types of variables.
- First of all, the distribution of the target column and the
-statistical values of the numerical data were examined in
-order to get to know the data set more closely.</p>
-    <p>There are quite large distribution
-differences between the target values. This shows that under
-sampling or oversampling should be done before modeling.
-</p>
-    <p>The standard deviation of the
-variables named duration_ms and Unnamed: 0.1.1 is quite
-high. This indicates that there are very large deviations in the
-values of these variables.
- Visualizations were made based on the questions
-extracted from the analyzed data set. Graphs where data such
-as distribution, density, boxplot can be examined from
-different perspectives are examined. The visualizations
-helped us get more accurate information about some
-variables. For this reason, it is a very important step to do
-before data preprocessing.</p>
-    <p>It was understood
-that some of the variables that were evaluated numerically
-were actually categorical.</p>
-    <p>When the densities of the numeric values are examined, it is observed that the energy value firstly
-shows a left-skewed intensity, while the duration_ms value is
-right-skewed. However, there is an exponential density
-distribution throughout the table.</p>
-    <p> Boxplots are graphs that provide information about
-outliers. For this reason, boxplots of all variables according
-to types were examined. There are
-outlier values in the data. Based on these graphics, it was
-decided that outlier analysis should definitely be done. After getting to know and examining the data thoroughly,
-the actions to be taken on it were determined and studies were
-continued in this direction.
-</p>
-    <p>After all the processes were completed, modeling processes
-were started with the data set, which has 80250 rows and 29
-columns.
-</p>
+<div class="jumbotron text-justify">
+    <center>
+        <h3>Music Genre Classification</h3>
+    </center>
     <br>
-        <hr>
-    <h5> Dataset Visualization </h5>
-        <br>
-        <hr>
-    <h5> About The Team </h5>
-    <p>Burcu Ölmez 2017510084</p>
-    <p>Zeynep Kaya 2017510048</p>
+    <p>For centuries, music has emerged as an area where people can easily reflect their feelings. Over time, the
+        importance of music has increased and people have organized various competitions about music, and then
+        applications where people can access music have been developed. While people can listen to different types of
+        music, they usually listen to similar types of songs too much. However it is very important that music
+        applications that are frequently used today categorize this music correctly when new music is added. With this
+        categorization, it will be easier to reach for the person who will listen to the music to access the music.
+    </p>
+    <p>
+        Music genres have various characteristics. These features allow the music to be separated from each other. In
+        this project, a data set containing various music and the features of these music was examined using various
+        machine learning algorithms and methods. As a result of this review, various models were created. Then, a
+        website was designed and the models created were transferred to this website. Various music features entered by
+        the user in the Web Site interface are sent as parameters to the machine learning models. Models work in the
+        background to guess which type of music is entered by the user.
+    </p>
+    <p>
+        The main problem in this project is to find the genre of music that the users do not know the genre. It is
+        important to identify the type. Because it makes it easier to reach for the person to listen to the song.
+        Nowadays, songs are derived rapidly. Although the popularity of a song is not directly related to its genre,
+        capturing popularity across genres is valuable for any song. With the correct determination of the genre of a
+        song it can be added to the same music genres and evaluated in the right category. With this the success of a
+        song can be accurately measured. Of course, not only for the success of the song, but also for those who want to
+        listen to music and discover new songs often listen to the same type of music. So, facilitating these people’s
+        access to music is one of the problems ahead. Different machine learning algorithms are used for the solution of
+        this project. Models have been obtained from these algorithms and these models enable the determination of the
+        genres of unknown music.
+    </p>
     <hr>
+    <h5> Dataset Information </h5>
+    <p>Training dataset consists of 17,996 rows with 17 columns.
+
+        Test dataset consists of 7,713 rows with 16 columns.
+
+        The columns of the dataset are as follows: artist name; track name; popularity; danceability; energy; key;
+        loudness; mode; speechiness; acousticness; instrumentalness; liveness; valence; tempo; duration_in_milliseconds
+        and time_signature.
+
+        The Target Variable is 'Class’ attribute and it has the labels such as Rock, Indie, Alt, Pop, Metal, HipHop,
+        Alt_Music, Blues, Acoustic/Folk, Instrumental, Country, Bollywood.
+    </p>
+    <p>
+        Each feature in the data set has its own characteristics. These features are sometimes not important for
+        algorithms during the estimation process. In order to decide this, besides making good observations, the working
+        performance of the algorithm is also very important. For our dataset, Artist Name and Track Name are two
+        features that are considered unimportant to us. The main reason for this is that both features contain too many
+        different values. While these values ​​are used in machine learning methods, they turn into features with the
+        methods we call one-hot encoding or dummy encoding. Considering this situation, the number of features will
+        increase a lot and there is a problem we call the curse of dimensionality. However, when considered logically,
+        these two features may not be a problem for us, although they are not descriptive features. For this reason,
+        these two features were dropped from our dataset.
+    </p>
+    <p>
+        Another reduction was made in the Class feature. The main reason for this change is the accuracy in our data
+        set. We mentioned that there are 11 different values ​​in total. Unfortunately, the estimation of 11 data is not
+        returned as very high values ​​by the models. However, when we reduce these values ​​to 4 based on their
+        similarities, the accuracy of the models increases considerably.
+    </p>
+    <br>
+    <hr>
+    <div class="text-center">
+        <h5> About The Team </h5>
+        <p>2014510028 Çağrı Anıl Erbey</p>
+        <p> 2017510001 Sena Yurtseven</p>
+        <p>2017510011 Engin Artuksi</p>
+        <p>2017510102 Zafer Yalçın</p>
+        <hr>
     </div>
+</div>
 
 
 {% endblock %}
