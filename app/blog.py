@@ -89,6 +89,4 @@ def predict(Input):
 
     return (result)
 
-
-if __name__ == "__main__":
-    app.run(debug=True)
+print("pickle version: ",pickle.format_version)
