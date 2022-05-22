@@ -1,4 +1,12 @@
 Flask
 pickle-mixin
 pandas
+numpy
 gunicorn
+sklearn
+seaborn
+matplotlib
+missingno
+fancyimpute
+pylab
+collections 
