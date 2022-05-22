@@ -8,5 +8,4 @@ seaborn
 matplotlib
 missingno
 fancyimpute
-pylab
 collections 
